@@ -5,16 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M | Luxury Italian Fashion</title>
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts Import -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Oswald:wght@300&display=swap" rel="stylesheet">
-    
-    <!-- Custom Tailwind Configuration -->
+    <!-- Custom Tailwind Configuration (must be set before loading the CDN) -->
     <script>
+        tailwind = window.tailwind || {};
         tailwind.config = {
             theme: {
                 extend: {
@@ -23,15 +16,21 @@
                         'brand-white': '#FFFFFF',
                     },
                     fontFamily: {
-                        // Headers (ALTA approximation)
-                        header: ['Oswald', 'sans-serif'], 
-                        // Body (Montserrat Classic)
+                        header: ['Oswald', 'sans-serif'],
                         body: ['Montserrat', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts Import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Oswald:wght@300&display=swap" rel="stylesheet">
     
     <style>
       :root{
@@ -218,6 +217,15 @@
           opacity: 1;
           visibility: visible;
       }
+
+     /* ensure white text utility is available */
+     .text-brand-white { color: var(--brand-white) !important; }
+
+     /* make overlay text white (also preserves shadow) */
+     .video-overlay-text {
+       color: var(--brand-white);
+       text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+     }
     </style>
 </head>
 <body class="bg-brand-white font-body text-brand-black">
